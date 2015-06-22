@@ -25,10 +25,12 @@ public class LogDisperser {
 
 	public LogDisperser Enable() {
 		manager.Open();
+		Application.logMessageReceived += SendLog;
 		return this;
 	}
 
 	public LogDisperser Disable() {
+		Application.logMessageReceived -= SendLog;
 		manager.Close();
 		return this;
 	}
@@ -56,7 +58,7 @@ public class LogDisperser {
 		}, param);
 	}
 
-	public void Send(LogType type, string message) {
+	public void SendLog(string message, string trace, LogType type) {
 		if (!isReady) {
 			return;
 		}
