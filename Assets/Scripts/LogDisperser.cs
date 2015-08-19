@@ -25,12 +25,12 @@ public class LogDisperser {
 
 	public LogDisperser Enable() {
 		manager.Open();
-		Application.logMessageReceived += SendLog;
+		Application.logMessageReceivedThreaded += SendLog;
 		return this;
 	}
 
 	public LogDisperser Disable() {
-		Application.logMessageReceived -= SendLog;
+		Application.logMessageReceivedThreaded -= SendLog;
 		manager.Close();
 		return this;
 	}
