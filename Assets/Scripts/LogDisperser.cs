@@ -13,7 +13,7 @@ public class LogDisperser {
 
 	public LogDisperser(Uri host, string roomId, string uuid = null) {
 		this.roomId = roomId;
-		this.uuid = uuid ?? SystemInfo.deviceName;
+		this.uuid = uuid ?? SystemInfo.deviceModel;
 		SocketOptions options = new SocketOptions();
 		options.AutoConnect = false;
 		manager = new SocketManager(new Uri (host, "socket.io/"), options);
