@@ -36,7 +36,7 @@ public class LogDisperser {
 	}
 
 	public void onConnect(Socket socket, Packet packet, object[] json) {
-		Debug.Log ("[LogDisperser] Connected");
+		Debug.Log ("[LogDisperser] Connected to " + manager.Uri.AbsoluteUri);
 		JoinRoom();
 	}
 	
